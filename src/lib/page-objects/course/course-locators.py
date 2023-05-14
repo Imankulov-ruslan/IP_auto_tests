@@ -1,0 +1,6 @@
+GENERAL_INFO_LINK = "css:agn-tabs a:nth-child(1)"
+PRACTICAL_TASKS_LINK = "css:agn-tabs a:nth-child(2)"
+STUDENTS_LINK = "css:agn-tabs a:nth-child(3)"
+COURSE_INFO = "css:agn-course-info"
+CREATE_PRACTICE_BUTTON = "css:agn-course-practice button"
+PRACTICE_CARD = "css:agn-course-practice-card"

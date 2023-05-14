@@ -1,0 +1,8 @@
+THEME_FIELD = "css:agn-form-card:nth-child(1) button.tk-select-trigger"
+NAME_FIELD = "css:agn-form-card:nth-child(1) tk-form-field:nth-of-type(2) input"
+DEADLINE_FIELD = "css:agn-form-card:nth-child(2) tk-form-field:nth-of-type(1) input"
+MAXIMUM_POINTS_FIELD = "css:agn-form-card:nth-child(2) tk-form-field:nth-of-type(2) input"
+TASK_TYPE_FIELD = "css:agn-form-card:nth-child(3) button.tk-select-trigger"
+DESCRIPTION_FIELD = "css:div.task-card p"
+SAVE_BUTTON = "css:button[type=submit]"
+ERROR_MESSAGE = "css:tk-error:nth-child(2)"
