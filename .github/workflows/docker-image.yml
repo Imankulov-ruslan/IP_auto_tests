@@ -15,9 +15,13 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: PrepareReg Names
+      run: |
+        echo IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+        echo IMAGE_TAG=$(echo ${{ github.ref }} | tr '[:upper:]' '[:lower:]' | awk '{split($0,a,"/"); print a[3]}') >> $GITHUB_ENV
 
     - name: Build the hello-world Docker image
       run: |
-        docker build . --tag ghcr.io/imankulov-ruslan/ip-auto-test:latest
-        docker run ghcr.io/imankulov-ruslan/ip-auto-test:latest
-        docker push ghcr.io/imankulov-ruslan/ip-auto-test:latest
+        docker build . --tag ghcr.io/${{GITHUB_ENV}}
+        docker run ghcr.io/${{GITHUB_ENV}}
+        docker push ghcr.io/${{GITHUB_ENV}}
