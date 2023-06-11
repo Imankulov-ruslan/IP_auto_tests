@@ -22,6 +22,6 @@ jobs:
 
     - name: Build the hello-world Docker image
       run: |
-        docker build . --tag ghcr.io/${{GITHUB_ENV}}
-        docker run ghcr.io/${{GITHUB_ENV}}
-        docker push ghcr.io/${{GITHUB_ENV}}
+        docker build . --tag ghcr.io/${{ env.IMAGE_REPOSITORY}}/${{ env.IMAGE_TAG }}
+        docker run ghcr.io/${{ env.IMAGE_REPOSITORY}}/${{ env.IMAGE_TAG }}
+        docker push ghcr.io/${{ env.IMAGE_REPOSITORY}}/${{ env.IMAGE_TAG }}
