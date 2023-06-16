@@ -1,5 +1,5 @@
 FROM python:3.9.6
-COPY . .
+COPY . ./app
 RUN apt update
 RUN apt install sudo
 RUN apt-get install chromium -y
