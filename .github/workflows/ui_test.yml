@@ -37,5 +37,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}    
     - name: Run Test
-      run: 
+      run:
+        docker pull . --tag ghcr.io/${{ env.IMAGE_REPOSITORY}}/${{ env.IMAGE_TAG }} 
         docker run . --tag ghcr.io/${{ env.IMAGE_REPOSITORY}}/${{ env.IMAGE_TAG }}
