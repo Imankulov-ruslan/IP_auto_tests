@@ -26,4 +26,4 @@ jobs:
     steps:
     - name: test  
       run:
-        ls -la
+        echo ls -la
