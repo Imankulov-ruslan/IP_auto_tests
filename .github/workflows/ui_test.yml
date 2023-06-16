@@ -23,4 +23,4 @@ jobs:
     - name: test  
       run:
         cd /;
-        robot --variable ui_auth_password:${{ inputs.ui_auth_password }} -A src/config/test-runner/dev-args.robot
+        robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot
