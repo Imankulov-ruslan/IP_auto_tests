@@ -22,7 +22,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/imankulov-ruslan/my-svc:latest
+    container: ghcr.io/imankulov-ruslan/my-svc
     steps:
     - name: test  
       run:
