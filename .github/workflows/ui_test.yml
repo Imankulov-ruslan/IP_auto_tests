@@ -23,4 +23,4 @@ jobs:
     - name: test  
       run:
         cd /;
-        bash test.sh
+        robot --variable ui_auth_password:INPUT_UI_AUTH_PASSWORD -A src/config/test-runner/dev-args.robot
