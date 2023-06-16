@@ -1,20 +1,10 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: UI_TESTS
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      ui_auth_password:
-        # Input has to be provided for the workflow to run
-        required: true
-        # The data type of the input
-        type: string
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+on: [workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
