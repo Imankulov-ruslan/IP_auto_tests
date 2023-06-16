@@ -22,8 +22,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/imankulov-ruslan/ip_auto_tests
+    container: ghcr.io/imankulov-ruslan/my-svc:latest
     steps:
     - name: test  
       run:
-        echo ls -la
+        ls -la
