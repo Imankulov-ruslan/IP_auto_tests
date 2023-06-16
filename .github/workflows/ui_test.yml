@@ -22,4 +22,4 @@ jobs:
     steps:
     - name: test  
       run:
-        sudo /test.sh
+        bash /test.sh
