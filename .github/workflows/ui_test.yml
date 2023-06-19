@@ -13,13 +13,9 @@ jobs:
     - name: test  
       run:
         cd /app;
-        robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot |
-        git init;
-        git add -A;
-        git commit -m 'deploy';
-        git push -f git@github.com:imankulov_ruslan/ip_auto_tests.git test-results;
+        robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot
     - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-report
-          path: /reports/reports.html
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: reports/reports.html
