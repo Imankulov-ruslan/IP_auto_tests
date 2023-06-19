@@ -16,8 +16,10 @@ jobs:
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
+      if: always()
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
+      if: always()
     - name: Copy from container to host
       uses: tj-actions/docker-cp@v2
       if: always()
