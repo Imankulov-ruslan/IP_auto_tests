@@ -16,7 +16,7 @@ jobs:
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;
         git config --global user.name 'Imankulov-ruslan';
         git config --global user.email 'ruselwow@gmail.com';
-        git remote set-url origin https://x-access-token:${{ secrets.CR_PAT }}@github.com/${{ github.repository }};
+        git remote set-url origin https://Imankulov-ruslan:${{ secrets.CR_PAT }}@github.com/Imankulov-ruslan/BreadcrumbsIP_auto_tests.git;
         git checkout -b test-results;
         git add -A .;
         git status;
