@@ -14,14 +14,15 @@ jobs:
       run:
         cd /app;
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-report
-        path: ./reports/report.html
     - name: Copy from container to host
       uses: tj-actions/docker-cp@v2
       with:
         container: ghcr.io/imankulov-ruslan/my-svc
         source: /reports/report.html
         destination: ./reports/report.html
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: ./reports/report.html
+
