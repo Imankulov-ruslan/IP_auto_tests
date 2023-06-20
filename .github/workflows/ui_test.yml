@@ -20,5 +20,5 @@ jobs:
         git add -A .;
         git status;
         git commit -m "deploy";
-        git push https://Imankulov-ruslan:${{secrets.GIT_PASSWORD}}@github.com:Imankulov-ruslan/IP_auto_tests.git
+        git push https://Imankulov-ruslan:${{secrets.GIT_PASSWORD}}@github.com/Imankulov-ruslan/IP_auto_tests.git
 
