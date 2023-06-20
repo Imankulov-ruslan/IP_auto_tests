@@ -14,8 +14,8 @@ jobs:
       run:
         cd /app;
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;        
-        git config --global user.email "ruselwow@gmail.com"
-        git config --global user.name "Imankulov-ruslan"
+        git config user.email "ruselwow@gmail.com"
+        git config user.name "Imankulov-ruslan"
         git checkout -b test-results;
         git add -A .;
         git status;
