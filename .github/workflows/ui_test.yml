@@ -13,12 +13,10 @@ jobs:
     - name: test  
       run:
         cd /app;
-        robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;
-        git config --global user.name 'Imankulov-ruslan';
-        git config --global user.email 'ruselwow@gmail.com';
+        robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot;        
         git checkout -b test-results;
         git add -A .;
         git status;
         git commit -m "deploy";
-        git push -f origin test-results;
+        git push https://Imankulov-ruslan:${{secrets.GIT_PASSWORD}}@Imankulov-ruslan/IP_auto_tests.git
 
