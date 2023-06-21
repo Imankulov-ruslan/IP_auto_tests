@@ -22,6 +22,8 @@ jobs:
         name: test-report
         path: /app/reports/report.html
   deploy:
+    if: ${{ always() }}
+    needs: [test]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
