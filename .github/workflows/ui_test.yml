@@ -15,7 +15,7 @@ jobs:
         cd /app
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot
         git config user.email ${{secrets.EMAIL}}
-        git config user.name ${{secrets.NAME}}'
+        git config user.name ${{secrets.NAME}}
         git remote add tests https://Imankulov-ruslan:${{secrets.GIT_PASSWORD}}@github.com/Imankulov-ruslan/IP_auto_tests.git
         git checkout -b test-results
         git add -A .
