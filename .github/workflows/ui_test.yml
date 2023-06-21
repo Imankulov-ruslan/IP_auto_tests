@@ -16,10 +16,13 @@ jobs:
       run: |
         cd /app
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
+        echo after-test
         ls -a
         exit
+        echo after-exit
         ls -a
         cd /app
+        echo after-cd
         ls -a
 
 
