@@ -13,7 +13,7 @@ jobs:
     - name: test  
       run: |
         cd /app
-        echo ${{ secrets.NAME }}
+        echo ${{secrets.NAME}} | sed 's/./& /g'
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
         git config user.email ${{ secrets.EMAIL }}
         git config user.name ${{ secrets.NAME }}
