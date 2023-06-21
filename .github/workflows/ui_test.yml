@@ -11,7 +11,7 @@ jobs:
     container: ghcr.io/imankulov-ruslan/my-svc
     steps:
     - name: test  
-      run:
+      run: |
         cd /app
         robot --variable ui_auth_password:${{secrets.UI_AUTH_PASSWORD}} -A src/config/test-runner/dev-args.robot
         git config user.email ${{secrets.EMAIL}}
