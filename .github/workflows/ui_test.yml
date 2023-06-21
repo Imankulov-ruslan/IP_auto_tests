@@ -16,11 +16,12 @@ jobs:
       run: |
         cd /app
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
+        ls -a
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
-        name: reports
-        path: reports
+        name: ./reports/
+        path: ./reports/
       
 
 
