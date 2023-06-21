@@ -39,6 +39,9 @@ jobs:
         with:
           name: test-report
           path: '.'
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: '.'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
