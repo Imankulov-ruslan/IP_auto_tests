@@ -13,14 +13,13 @@ jobs:
     - name: test  
       run: |
         cd /app
-        echo ${{secrets.NAME}} | sed 's/./& /g'
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
         git config user.email ${{ secrets.EMAIL }}
         git config user.name ${{ secrets.NAME }}
-        git remote add tests https://Imankulov-ruslan:${{ secrets.PASSWORD }}@github.com/Imankulov-ruslan/IP_auto_tests.git
+        git remote add tests https://'Imankulov-ruslan:${{ secrets.PASSWORD }}'@github.com/Imankulov-ruslan/IP_auto_tests.git
         git checkout -b test-results
         git add -A .
         git status
         git commit -m "deploy"
-        git push -f https://Imankulov-ruslan:${{ secrets.PASSWORD }}@github.com/Imankulov-ruslan/IP_auto_tests.git
+        git push -f https://'Imankulov-ruslan:${{ secrets.PASSWORD }}'@github.com/Imankulov-ruslan/IP_auto_tests.git
 
