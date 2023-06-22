@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 
      image: ghcr.io/imankulov-ruslan/my-svc
-     options: --name test -e "SCREEN_WIDTH=1920" -e "SCREEN_HEIGHT=1080"
+     options: --name test -e "SCREEN_WIDTH=3840" -e "SCREEN_HEIGHT=2160"
     steps:
     - name: test  
       run: |
