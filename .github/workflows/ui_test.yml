@@ -28,7 +28,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-     contents: read
+     contents: write
      pages: write
      id-token: write
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: test-report
-          path: '/'
+          path: '.'
       - name: Display structure of downloaded files
         run: echo "<meta http-equiv="refresh" content="0; url=https://imankulov-ruslan.github.io/IP_auto_tests/report.html" />" > index.html 
         working-directory: '/'
