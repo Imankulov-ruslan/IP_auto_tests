@@ -40,7 +40,7 @@ jobs:
           name: test-report
           path: '.'
       - name: Display structure of downloaded files
-        run: echo "<meta http-equiv="refresh" content="0; url=http://mysite.github.io/folder/report.html" />" > index.html 
+        run: echo "<meta http-equiv="refresh" content="0; url=https://imankulov-ruslan.github.io/IP_auto_tests/report.html" />" > index.html 
         working-directory: '.'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
