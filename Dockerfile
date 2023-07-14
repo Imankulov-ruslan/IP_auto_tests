@@ -3,7 +3,7 @@ COPY . ./app
 WORKDIR ./app
 RUN apt update
 RUN apt install sudo
-RUN sudo apt install ffmpeg
+RUN apt install ffmpeg
 RUN apt-get install chromium -y
 RUN pip install -r requirements.txt
 RUN webdrivermanager chrome
