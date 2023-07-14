@@ -15,7 +15,7 @@ jobs:
     - name: test  
       run: |
         cd /app
-        robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
+        robot --variable browser:chrome --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
