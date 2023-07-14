@@ -11,24 +11,8 @@ Test Setup    I Navigate Courses Page
 
 *** Test Cases ***
 
-# Test_Case_1_Create_Review_Task
-#     [Tags]    Flowcell_View
-#     ${RANDOM_COURSE_NAME}    Generate Random String    length=10
-
-#     I Open "ку" Course
-#     I Open Practical Tasks Tab
-#     I Click Create Practical Task Button
-#     I Choose First Value In "${THEME_FIELD}" Dropdown
-#     I Enter "${RANDOM_COURSE_NAME}" To "${NAME_FIELD}"
-#     I Set The Task Deadline In Future
-#     I Enter "1" To "${MAXIMUM_POINTS_FIELD}"
-#     I Choose Third Value In "${TASK_TYPE_FIELD}" Dropdown
-#     I Enter "test description" To "${DESCRIPTION_FIELD}"
-#     I Click "${SAVE_BUTTON}"
-#     I See Course Page Contains "${RANDOM_COURSE_NAME}" Task
-
 Test_Case_1_Course_Copying_Name_Validation
-    [Tags]    Flowcell_View
+    [Tags]    course_copy
     ${RANDOM_COURSE_NAME}    Generate Random String    length=10
 
     I Open "ку" Course

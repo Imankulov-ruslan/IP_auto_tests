@@ -1,6 +1,7 @@
 *** Settings ***
 Resource      ${EXECDIR}${/}src${/}features${/}all_imports.robot
 Resource    ../../lib/page-objects/courses/courses-actions.resource
+Library      AutoRecorder
 
 Suite Setup    Run Keywords
 ...    Open New Browser And Log Into Agona As A Teacher
@@ -12,7 +13,7 @@ Test Setup    I Navigate Courses Page
 *** Test Cases ***
 
 Test_Case_1_Create_Review_Task
-    [Tags]    Flowcell_View
+    [Tags]    students_review
     ${RANDOM_COURSE_NAME}    Generate Random String    length=10
 
     WHEN I Open "ку" Course
@@ -28,7 +29,7 @@ Test_Case_1_Create_Review_Task
     THEN I See Course Page Contains "${RANDOM_COURSE_NAME}" Task
 
 Test_Case_2_Review_Task_Maximum_Points
-    [Tags]    Flowcell_View
+    [Tags]    students_review
     ${RANDOM_COURSE_NAME}    Generate Random String    length=10
 
     WHEN I Open "ку" Course
@@ -49,7 +50,7 @@ Test_Case_2_Review_Task_Maximum_Points
     THEN I See Course Page Contains "${RANDOM_COURSE_NAME}" Task
 
 Test_Case_3_Delete_Review_Task
-    [Tags]    Flowcell_View
+    [Tags]    students_review
     ${RANDOM_COURSE_NAME}    Generate Random String    length=10
 
     WHEN I Open "ку" Course
