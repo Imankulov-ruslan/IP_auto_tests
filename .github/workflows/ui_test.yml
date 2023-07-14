@@ -8,18 +8,47 @@ on: [workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/imankulov-ruslan/my-svc
+    container: 
+     image: ghcr.io/imankulov-ruslan/my-svc
+     options: --name test -e "SCREEN_WIDTH=3840" -e "SCREEN_HEIGHT=2160"
     steps:
     - name: test  
       run: |
         cd /app
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
-        git config user.email ${{ secrets.EMAIL }}
-        git config user.name ${{ secrets.NAME }}
-        git remote add tests https://Imankulov-ruslan:${{ secrets.PASSWORD }}@github.com/Imankulov-ruslan/IP_auto_tests.git
-        git checkout -b test-results
-        git add -A .
-        git status
-        git commit -m "deploy"
-        git push -f https://Imankulov-ruslan:${{ secrets.PASSWORD }}@github.com/Imankulov-ruslan/IP_auto_tests.git
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: /app/reports
+  deploy:
+    if: ${{ always() }}
+    needs: [test]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+     contents: write
+     pages: write
+     id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: test-report
+          path: '.'
+      - name: Display structure of downloaded files
+        run: echo -e '<meta http-equiv="refresh" content="0; url=https://imankulov-ruslan.github.io/IP_auto_tests/report.html" />' > index.html
+        working-directory: '.' 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+      
+
 
