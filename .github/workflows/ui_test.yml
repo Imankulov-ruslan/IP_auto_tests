@@ -16,7 +16,7 @@ jobs:
       run: |
         cd /app
         robot --variable ui_auth_password:${{ secrets.UI_AUTH_PASSWORD }} -A src/config/test-runner/dev-args.robot
-        ffmpeg -framerate 1 -pattern_type glob -i './reports/screenshots/*.png' -c:v libx264 -r 15 -pix_fmt yuv420p reports/output.mp4
+        ffmpeg -framerate 5 -pattern_type glob -i './reports/screenshots/*.png' -c:v libx264 -r 15 -pix_fmt yuv420p reports/output.mp4
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
